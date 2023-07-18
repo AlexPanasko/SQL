@@ -6,15 +6,15 @@ import lombok.Value;
 import java.util.Locale;
 
 public class DataHelper {
-    private static Faker faker = new Faker(new Locale("en"));
+    private static final Faker faker = new Faker(new Locale("en"));
 
     private DataHelper() {
     }
 
     @Value
     public static class AuthInfo {
-        private String login;
-        private String password;
+        String login;
+        String password;
     }
 
     public static String generateRandomLogin() {
@@ -34,11 +34,7 @@ public class DataHelper {
 
     @Value
     public static class VerificationCode {
-        private String code;
-    }
-
-    public static VerificationCode getVerificationCodeFor(AuthInfo authInfo) {
-        return new VerificationCode("12345");
+        String code;
     }
 
 
